@@ -76,7 +76,32 @@ function nodosConXHijos(data, cantHijos){
 //3. Contabilizar la cantidad de nodos totales
 //========================================================================================================================================
 
-//Esta función no considera el nodo raiz en el total, por lo que si se desea tomar en cuenta se debería sumar 1
+
+//Contador para ir sumando los nodos de esta pregunta
+var cantidadNodosP3 = 0;
+contarNodos(data);
+
+//Para ver resultado por consola
+//console.log(cantidadNodosP3);
+
+function contarNodos(data){
+    //Si existe nodo sumo 1 al contador 
+    if (data) {        
+            cantidadNodosP3++;
+    }
+    else{
+        //Si el nodo no existe se retorna cero    
+        return 0;
+    }
+    //Se llama a funcion recursivamente 
+    data.hijos.map( hijo => contarNodos(hijo));
+
+}
+
+/*
+
+//Lo había realizado con reduce pero esta función no considera el nodo raiz en el total, por lo que si se desea tomar en cuenta se debería sumar 1 a la respuesta
+//Por ello que se decide realizar funcion siguiendo la misma logica que P1 y P2 y comentar esta funcion
 var respuestaP3 = contarNodos(data);
 
 //Para ver respuesta por consola
@@ -100,7 +125,7 @@ function contarNodos(data) {
 }
 
 
-
+*/
 
 //========================================================================================================================================
 //4. Retornar todas las Sedes con 4° Medio que *SI* poseen la *Oferta Tecnología* en sus *Secciones A*
@@ -115,7 +140,7 @@ var respuestaP4 = [];
 obtenerSedes(data,curso,seccion,oferta);
 
 //Para imprimir respuesta por consola
-console.log(respuestaP4);
+//console.log(respuestaP4);
 
 
 function obtenerSedes(data,curso,seccion,oferta) {
