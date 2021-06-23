@@ -19,7 +19,7 @@ const data = require("./src/input-p1.json");
 var respuestaP1 =[];
 nodosSinHijos(data);
 
-//Para ver respuesta por consola
+//Para imprimir respuesta por consola
 //console.log(respuestaP1);
 
 function nodosSinHijos(data){
